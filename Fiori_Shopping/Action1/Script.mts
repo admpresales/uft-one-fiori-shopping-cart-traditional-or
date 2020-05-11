@@ -1,5 +1,5 @@
-﻿Browser("Shopping Cart").ClearCache
-Browser("Shopping Cart").Navigate ("https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/cart/webapp/index.html#")
+﻿Browser("Shopping Cart").ClearCache															'The app sometimes has changes that require cache to be cleared
+Browser("Shopping Cart").Navigate ("https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/cart/webapp/index.html#")	'Navigate to the application
 Browser("Shopping Cart").Page("Shopping Cart").Sync             							'Wait for the browser DOM to state it is done processing
 Browser("Shopping Cart").Page("Shopping Cart").WebElement("Laptops").Click					'Click on the Laptops on the screen in the left frame
 Browser("Shopping Cart").Page("Shopping Cart").Sync             							'Wait for the browser DOM to state it is done processing
@@ -24,5 +24,5 @@ Browser("Shopping Cart").Page("Shopping Cart").SAPUIButton("Save Changes").Click
 Browser("Shopping Cart").Page("Shopping Cart").Sync             							'Wait for the browser DOM to state it is done processing
 Browser("Shopping Cart").Page("Shopping Cart").SAPUIToggleButton("Show Shopping Cart_2").Set "OFF"	'Click the cart button to collapse the cart slide out frame @@ script infofile_;_ZIP::ssf11.xml_;_
 Browser("Shopping Cart").Page("Shopping Cart").Sync             							'Wait for the browser DOM to state it is done processing
-Browser("Shopping Cart").Close
+Browser("Shopping Cart").Close																'Close the browser at the end of the iteration
 
