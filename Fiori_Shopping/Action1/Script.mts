@@ -1,4 +1,6 @@
-﻿Browser("Shopping Cart").Page("Shopping Cart").Sync             							'Wait for the browser DOM to state it is done processing
+﻿Browser("Shopping Cart").ClearCache
+Browser("Shopping Cart").Navigate ("https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/cart/webapp/index.html#")
+Browser("Shopping Cart").Page("Shopping Cart").Sync             							'Wait for the browser DOM to state it is done processing
 Browser("Shopping Cart").Page("Shopping Cart").WebElement("Laptops").Click					'Click on the Laptops on the screen in the left frame
 Browser("Shopping Cart").Page("Shopping Cart").Sync             							'Wait for the browser DOM to state it is done processing
 Browser("Shopping Cart").Page("Shopping Cart").WebElement("First Item in List").WaitProperty "visible",True, 3000	'Wait for the first text item in the list of products in the right frame to load before moving on, custom synchronization
@@ -22,4 +24,5 @@ Browser("Shopping Cart").Page("Shopping Cart").SAPUIButton("Save Changes").Click
 Browser("Shopping Cart").Page("Shopping Cart").Sync             							'Wait for the browser DOM to state it is done processing
 Browser("Shopping Cart").Page("Shopping Cart").SAPUIToggleButton("Show Shopping Cart_2").Set "OFF"	'Click the cart button to collapse the cart slide out frame @@ script infofile_;_ZIP::ssf11.xml_;_
 Browser("Shopping Cart").Page("Shopping Cart").Sync             							'Wait for the browser DOM to state it is done processing
+Browser("Shopping Cart").Close
 
