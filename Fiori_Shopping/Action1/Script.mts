@@ -1,7 +1,16 @@
-﻿Browser("Shopping Cart").ClearCache															'The app sometimes has changes that require cache to be cleared
+﻿'=================================================================================================================================================================================
+'	Note that the demo application has the text "Available" on both the left frame, list of products, and in the middle, advertisement frame.
+'		The Smart Identification on the First and Second Available objects needs to be turned off to have it actually use the text rather than the table location
+'=================================================================================================================================================================================
+
+Dim Category																				'Initialize the variables to be used to enable data driving
+
+Category = DataTable.GlobalSheet.GetParameter("Categories")									'Set the value for the Category that will be clicked on
+
+Browser("Shopping Cart").ClearCache															'The app sometimes has changes that require cache to be cleared
 Browser("Shopping Cart").Navigate ("https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/cart/webapp/index.html#")	'Navigate to the application
 Browser("Shopping Cart").Page("Shopping Cart").Sync             							'Wait for the browser DOM to state it is done processing
-Browser("Shopping Cart").Page("Shopping Cart").WebElement("Laptops").Click					'Click on the Laptops on the screen in the left frame
+Browser("Shopping Cart").Page("Shopping Cart").WebElement(Category).Click					'Click on the Laptops on the screen in the left frame
 Browser("Shopping Cart").Page("Shopping Cart").Sync             							'Wait for the browser DOM to state it is done processing
 Browser("Shopping Cart").Page("Shopping Cart").WebElement("First Item in List").WaitProperty "visible",True, 3000	'Wait for the first text item in the list of products in the right frame to load before moving on, custom synchronization
 Browser("Shopping Cart").Page("Shopping Cart").WebElement("First Available Product").Click	'Click on the first "Available" text in the list of products
