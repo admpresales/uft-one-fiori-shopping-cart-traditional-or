@@ -9,6 +9,7 @@ Category = DataTable.GlobalSheet.GetParameter("Categories")									'Set the val
 
 Browser("Shopping Cart").ClearCache															'The app sometimes has changes that require cache to be cleared
 Browser("Shopping Cart").Navigate ("https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/cart/webapp/index.html#")	'Navigate to the application
+Browser("Shopping Cart").Maximize															'Maximize the screen to ensure object recognition is better with AI
 Browser("Shopping Cart").Page("Shopping Cart").Sync             							'Wait for the browser DOM to state it is done processing
 Browser("Shopping Cart").Page("Shopping Cart").WebElement(Category).Click					'Click on the Laptops on the screen in the left frame
 Browser("Shopping Cart").Page("Shopping Cart").Sync             							'Wait for the browser DOM to state it is done processing
