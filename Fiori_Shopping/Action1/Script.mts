@@ -7,7 +7,7 @@ Dim Category																				'Initialize the variables to be used to enable d
 
 Category = DataTable.GlobalSheet.GetParameter("Categories")									'Set the value for the Category that will be clicked on
 
-Set PageContext = PageContext																'Make the script more readable
+Set PageContext = Browser("Shopping Cart").Page("Shopping Cart")							'Make the script more readable
 
 Browser("Shopping Cart").ClearCache															'The app sometimes has changes that require cache to be cleared
 Browser("Shopping Cart").Navigate ("https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/cart/webapp/index.html#")	'Navigate to the application
