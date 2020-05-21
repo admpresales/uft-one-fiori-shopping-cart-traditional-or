@@ -7,11 +7,11 @@ Dim Category																				'Initialize the variables to be used to enable d
 
 Category = DataTable.GlobalSheet.GetParameter("Categories")									'Set the value for the Category that will be clicked on
 
-Set PageContext = Browser("Shopping Cart").Page("Shopping Cart")							'Make the script more readable
+Set PageContext = Browser("Browser").Page("Shopping Cart")									'Make the script more readable
 
-Browser("Shopping Cart").ClearCache															'The app sometimes has changes that require cache to be cleared
-Browser("Shopping Cart").Navigate ("https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/cart/webapp/index.html#")	'Navigate to the application
-Browser("Shopping Cart").Maximize															'Maximize the screen to ensure object recognition is better with AI
+Browser("Browser").ClearCache																'The app sometimes has changes that require cache to be cleared
+Browser("Browser").Navigate ("https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/cart/webapp/index.html#")	'Navigate to the application
+Browser("Browser").Maximize																	'Maximize the screen to ensure object recognition is better with AI
 PageContext.Sync             																'Wait for the browser DOM to state it is done processing
 PageContext.WebElement(Category).Click														'Click on the Laptops on the screen in the left frame
 PageContext.Sync             																'Wait for the browser DOM to state it is done processing
@@ -36,5 +36,5 @@ PageContext.SAPUIButton("Save Changes").Click												'Click the Save Changes
 PageContext.Sync             																'Wait for the browser DOM to state it is done processing
 PageContext.SAPUIToggleButton("Show Shopping Cart_2").Set "OFF"								'Click the cart button to collapse the cart slide out frame @@ script infofile_;_ZIP::ssf11.xml_;_
 PageContext.Sync             																'Wait for the browser DOM to state it is done processing
-Browser("Shopping Cart").Close																'Close the browser at the end of the iteration
+Browser("Browser").Close																	'Close the browser at the end of the iteration
 
