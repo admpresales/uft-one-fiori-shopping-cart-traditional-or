@@ -15,6 +15,9 @@ Browser("Browser").Maximize																	'Maximize the screen to ensure objec
 PageContext.Sync             																'Wait for the browser DOM to state it is done processing
 PageContext.WebElement(Category).Click														'Click on the Laptops on the screen in the left frame
 PageContext.Sync             																'Wait for the browser DOM to state it is done processing
+'=================================================================================================================================================================================
+'	Example of a sync point
+'=================================================================================================================================================================================
 PageContext.WebElement("First Item in List").WaitProperty "visible",True, 3000				'Wait for the first text item in the list of products in the right frame to load before moving on, custom synchronization
 PageContext.WebElement("First Available Product").Click										'Click on the first "Available" text in the list of products
 PageContext.Sync             																'Wait for the browser DOM to state it is done processing
