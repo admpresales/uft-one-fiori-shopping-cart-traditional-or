@@ -3,15 +3,24 @@
 '		The Smart Identification on the First and Second Available objects needs to be turned off to have it actually use the text rather than the table location
 '=================================================================================================================================================================================
 
-Dim Category																				'Initialize the variables to be used to enable data driving
+Dim Category,BrowserExecutable, oShell 													'Initialize the variables to be used to enable data driving
+
+While Browser("CreationTime:=0").Exist(0)   													'Loop to close all open browsers
+	Browser("CreationTime:=0").Close 
+Wend
+BrowserExecutable = DataTable.Value("BrowserName") & ".exe"
+SystemUtil.Run BrowserExecutable,"","","",3												'launch the browser specified in the data table
+Set AppContext=Browser("CreationTime:=0")												'Set the variable for what application (in this case the browser) we are acting upon
+
+AppContext.ClearCache																		'Clear the browser cache to ensure you're getting the latest forms from the application
+AppContext.Navigate DataTable.Value("URL")												'Navigate to the application URL
+AppContext.Maximize																		'Maximize the application to give the best chance that the fields will be visible on the screen
+AppContext.Sync																			'Wait for the browser to stop spinning
 
 Category = DataTable.GlobalSheet.GetParameter("Categories")									'Set the value for the Category that will be clicked on
 
 Set PageContext = Browser("Browser").Page("Shopping Cart")									'Make the script more readable
 
-Browser("Browser").ClearCache																'The app sometimes has changes that require cache to be cleared
-Browser("Browser").Navigate ("https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/cart/webapp/index.html#")	'Navigate to the application
-Browser("Browser").Maximize																	'Maximize the screen to ensure object recognition is better with AI
 PageContext.Sync             																'Wait for the browser DOM to state it is done processing
 PageContext.WebElement(Category).Click														'Click on the Laptops on the screen in the left frame
 PageContext.Sync             																'Wait for the browser DOM to state it is done processing
